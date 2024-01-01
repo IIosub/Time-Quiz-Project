@@ -45,3 +45,16 @@ const questions = [
     correctAnswer: 1,
   },
 ];
+
+function startQuiz() {
+  let time = 0;
+  const interval = document.getElementById("time");
+
+  const timerInterval = setInterval(function () {
+    time++;
+    interval.textContent = time;
+  }, 1000);
+}
+
+const startButton = document.getElementById("start");
+startButton.addEventListener("click", startQuiz);
