@@ -2,18 +2,18 @@
 const questions = [
   {
     question: "Where is the correct place to insert a JavaScript?",
-    answers: ["head section", "body section", "", "head and body sections"],
+    choices: ["head section", "body section", "", "head and body sections"],
     correctAnswer: 1,
   },
   {
     question:
       " ____ is a keyword used to declare a variable that cannot be reassigned a new value.",
-    answers: ["const", "var", "let"],
+    choices: ["const", "var", "let"],
     correctAnswer: 0,
   },
   {
     question: "How do you create a function in JavaScript?",
-    answers: [
+    choices: [
       "function functionName()",
       "function:functionName()",
       "functionName",
@@ -22,7 +22,7 @@ const questions = [
   },
   {
     question: "How does a FOR loop start?",
-    answers: [
+    choices: [
       "for(i=0;i++",
       "for (i<=5)",
       "for i= 1 to 5",
@@ -32,12 +32,12 @@ const questions = [
   },
   {
     question: "How do you round the number 7.25, to the nearest integer?",
-    answers: ["rdn(7.85)", "round(7.85)", "Math.floor(7.85)", "Math.rdn(7.85)"],
+    choices: ["rdn(7.85)", "round(7.85)", "Math.floor(7.85)", "Math.rdn(7.85)"],
     correctAnswer: 2,
   },
   {
     question: "How can you add a comment in a JavaScript?",
-    answers: [
+    choices: [
       "<-This is a comment->",
       "//This is a comment",
       "'This is a comment",
@@ -47,13 +47,25 @@ const questions = [
 ];
 
 function startQuiz() {
-  let time = 0;
+  let time = 75;
   const interval = document.getElementById("time");
 
   const timerInterval = setInterval(function () {
-    time++;
+    time--;
     interval.textContent = time;
   }, 1000);
+
+  let currentQuestionIndex = 0;
+  const questionTitle = document.getElementById("question-title");
+  const questionsDiv = document.getElementById("questions");
+  const choices = document.getElementById("choices");
+  const currentQuestion = questions[currentQuestionIndex];
+
+  questionTitle.textContent = currentQuestion.question;
+  questionsDiv.classList.remove("hide");
+
+  const startScreen = document.querySelector("#start-screen");
+  startScreen.classList.add("hide");
 }
 
 const startButton = document.getElementById("start");
