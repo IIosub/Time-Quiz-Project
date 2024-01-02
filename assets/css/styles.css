@@ -47,9 +47,10 @@ ol {
 li {
   padding: 5px;
   list-style: decimal inside none;
+  margin-bottom: 5px;
 }
 
-li:nth-child(odd) {
+li {
   background-color: #f3edfc;
 }
 
